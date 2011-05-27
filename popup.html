@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"></script>
+    <link type="text/css" rel="stylesheet" href="popup_style.css"></link>
+    <script type="text/javascript" src="jquery.js" rel="javascript"></script>
+    <script type="text/javascript" src="selective_php.js" rel="javascript"></script>
+    <script type="text/javascript" src="transmogrify.js" rel="javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#inputtext').keyup(function() {
+            $('#output').val(transmogrify($('#inputtext').val(), $('select option:selected').val()));
+        });
+        $('select').change(function() {
+            $('#output').val(transmogrify($('#inputtext').val(), $('select option:selected').val()));
+        });
+        $('#output').click(function() {
+            this.select();
+            $('#share').slideDown(350);
+            $('#share').animate({ opacity: 1.0 }, 200);
+        });
+        $('#share a[href="#twitter"]').click(function() {
+            chrome.tabs.create({url: 'http://twitter.com/?status=' + $('#output').val() + '+[http://funicode.com]'});
+            return false;
+        });
+        $('#pagebtn').click(function() {
+            localStorage['pageMethod'] = $('select option:selected').val();
+            var port = chrome.extension.connect({name: "transform_page"});
+            port.postMessage({action: "transform_page"});
+        });
+    });
+    </script>
+</head>
+<body>
+<div id="wrap">
+<img src="icon_48.png" alt="fu" /><h4>Transmogrify Text with Funicode!</h4>
+<div id="body">
+<p>Enter any text into the first text area below and select a transmogrification method to perform on it, then see the results in the second text area.<br/></p>
+<label for="inputtext">Input:</label>
+<textarea name="inputtext" id="inputtext"></textarea><br/>
+<label for="transformMethod">Transmogrification:</label>
+<select name="transformMethod" id="method">
+    <option>Circumcision</option>
+    <option>StrikeOut</option>
+    <option>MonkeyBalls</option>
+    <option>AnalRetentive</option>
+    <option>Squinty</option>
+    <option>RustyNail</option>
+    <option>FallenLoki</option>
+    <option>DisOriented</option>
+    <option>TrojanHorse</option>
+    <option>FleaPoop</option>
+    <option>OpticalDillusion</option>
+    <option>UpsideDown</option>
+    <option>Falfabet</option>
+    <option>CapSlap</option>
+    <option>Slowercase</option>
+    <option>InterCapped</option>
+    <option>StartCap</option>
+    <option>LackOfSpace</option>
+    <option>L337</option>
+    <option>rorriM</option>
+    <option>MD5</option>
+    <option>SHA1</option>
+    <option>Base64</option>
+    <option>rot13</option>
+    <option>Binary</option>
+    <option>Hexadecimal</option>
+    <option>Decimal</option>
+</select><br/>
+<label for="output">Transmogrified text:</label>
+<textarea name="output" id="output"></textarea>
+<div id="share">
+    <a target="_blank" href="#twitter">Tweet this!</a>
+</div>
+<div style="width: 100%;text-align: center; font-weight: bold; valign: center;">
+<hr class="hrhalf" style="margin-left: auto;" />or<hr class="hrhalf" style="margin-right: auto;"/>
+<p><button id="pagebtn">Transform<br/> the <br/>entire page!</button></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<br/>
+<span>Extension created by <a target="_blank" href="http://eddieringle.com">Eddie Ringle</a>.<br/>Powered by <a target="_blank" href="http://funicode.com">Funicode</a>.</span></div>
+</body>
+</html>
