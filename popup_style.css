@@ -31,7 +31,6 @@ div#body {
 div#cols {
     -webkit-column-count: 2;
     -webkit-column-gap: 1em;
-    -webkit-column-rule: 1px solid #ddd;
 }
 
 textarea {
@@ -61,4 +60,8 @@ hr.hrhalf {
 button#pagebtn {
     padding: 20px 30px;
     text-align: center;
+}
+
+span.disclaimer {
+    color: #555;
 }
