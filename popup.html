@@ -34,11 +34,8 @@
 <body>
 <div id="wrap">
 <img src="icon_48.png" alt="fu" /><h4>Transmogrify Text with Funicode!</h4>
-<div id="body">
-<p>Enter any text into the first text area below and select a transmogrification method to perform on it, then see the results in the second text area.<br/></p>
-<label for="inputtext">Input:</label>
-<textarea name="inputtext" id="inputtext"></textarea><br/>
-<label for="transformMethod">Transmogrification:</label>
+<div id="body" style="text-align: left">
+<p>First, select a transmogrification method to perform:<br/>
 <select name="transformMethod" id="method">
     <option>Circumcision</option>
     <option>StrikeOut</option>
@@ -67,15 +64,20 @@
     <option>Binary</option>
     <option>Hexadecimal</option>
     <option>Decimal</option>
-</select><br/>
+</select>
+</p>
+<p>Now, either type some text into the input box below to see the results, or click the button to transform the text on the currently selected tab!</p>
+<div id="cols">
+<label for="inputtext">Input:</label>
+<textarea name="inputtext" id="inputtext"></textarea><br/>
 <label for="output">Transmogrified text:</label>
 <textarea name="output" id="output"></textarea>
 <div id="share">
     <a target="_blank" href="#twitter">Tweet this!</a>
 </div>
-<div style="width: 100%;text-align: center; font-weight: bold; valign: center;">
-<hr class="hrhalf" style="margin-left: auto;" />or<hr class="hrhalf" style="margin-right: auto;"/>
+<div style="width: 100%;text-align: center;">
 <p><button id="pagebtn">Transform<br/> the <br/>entire page!</button></p>
+</div>
 </div>
 </div>
 </div>
