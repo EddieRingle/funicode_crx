@@ -1,11 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html, body {
     font-family: sans-serif;
     font-size: 12px;
-    min-width: 420px;
+    min-width: 440px;
+    margin: 0;
 }
 
 div#wrap {
-    float: left;
+    margin: 10px 15px;
 }
 
 img {
@@ -23,9 +29,8 @@ h4 {
     top: -18px;
 }
 
-div#body {
-    clear: both;
-    float: left;
+#body {
+    margin-top: 15px;
 }
 
 div#cols {
@@ -36,6 +41,7 @@ div#cols {
 textarea {
     font-family: tahoma, "Lucida Grande", verdana, arial, sans-serif;
     font-size: 14px;
+    margin-top: 3px;
 }
 
 #share {
@@ -45,16 +51,9 @@ textarea {
 }
 
 #footer {
-    clear:both;
+    margin-top: 15px;
     text-align: center;
     font-size: 10px;
-}
-
-hr.hrhalf {
-    width: 38%;
-    margin: 0 5px;
-    margin-bottom: 1px;
-    display: inline-block;
 }
 
 button#pagebtn {
@@ -62,6 +61,7 @@ button#pagebtn {
     text-align: center;
 }
 
-span.disclaimer {
+.disclaimer {
+    font-size: 10px;
     color: #555;
 }
